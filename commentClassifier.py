@@ -21,3 +21,9 @@ zoomitComments.shape
 zoomitComments.describe()
 zoomitComments.columns
 zoomitComments.head()
+
+zoomitComments=zoomitComments.drop(["ParentCommentid","UpdateDate2","CreateDate2","UpdatedByUserId","Name","Email"], axis=1)
+zoomitComments['wordCount']=zoomitComments['Message'].agg(lambda x: len(x.split(" "))) 
+
+zoomitComments.columns
+zoomitComments.head()
