@@ -26,10 +26,12 @@ zoomitComments=zoomitComments.drop(["ParentCommentid","UpdateDate2","CreateDate2
 zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<",""))
 zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("/>",""))
 zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<br />"," "))
-zoomitComments['wordCount'] = zoomitComments['Message'].agg(lambda comment: len(comment.split(" ")))
+zoomitComments['wordCount'] = zoomitComments["Message"].agg(lambda comment: len(comment.split(" ")))
 
-zoomitComments['Message'][2].replace()
-len(zoomitComments['Message'][2].split(" "))
+zoomitComments['Message'].agg(lambda x: x.replace("<br />"," "))
+
+zoomitComments['Message'][499724].replace("<br />"," ")
+len(zoomitComments['Message'][499724].split(" "))
 
 zoomitComments['Message'].agg(lambda x:x.replace("</ br>"," "))
 zoomitComments['Message'].agg(lambda x:x.replace("<br />"," "))
@@ -43,7 +45,11 @@ zoomitComments['word_count'] = zoomitComments['Message'].agg(lambda x: len(x.spl
 
 zoomitComments['Message'][2].replace("<br />"," ")
 
-#for i in range(0,zoomitComments.shape[0],1):
-#    zoomitComments['Message'][i]=zoomitComments['Message'][i].replace("<br />"," ")
+
+counterList=[]
+for i in range(0,zoomitComments.shape[0],1):
+    zoomitComments.Message.iloc=zoomitComments['Message'][i].replace("<br />"," ")
+    counterList.append(len(zoomitComments['Message'][i].split(" ")))
 
 
+zoomitComments.Message.iloc[11]
