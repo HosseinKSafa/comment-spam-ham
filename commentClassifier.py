@@ -26,6 +26,11 @@ zoomitComments=zoomitComments.drop(["ParentCommentid","UpdateDate2","CreateDate2
 
 
 zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<br />"," "))
+zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<br>"," "))
+
+
+zoomitComments['Message']
+
 zoomitComments['word_count'] = zoomitComments['Message'].agg(lambda x: len(x.split(" ")))
 
 
