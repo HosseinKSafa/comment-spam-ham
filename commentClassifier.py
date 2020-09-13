@@ -22,14 +22,11 @@ zoomitComments.columns
 zoomitComments.head()
 zoomitComments=zoomitComments.drop(["ParentCommentid","UpdateDate2","CreateDate2","UpdatedByUserId","Name","Email"], axis=1)
 
-#def func1st(par):
-#    par.replace("<br />"," ")
-#    return len(par.split(" "))
 
-#zoomitComments['wordCount'] = zoomitComments['Message'].agg(func1st)
-#zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<br />"," "))
-#zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<br>"," "))
-#zoomitComments['wordCount'] = zoomitComments['Message'].agg(lambda x: len(x.rsplit(" ")))
+zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<",""))
+zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("/>",""))
+zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("br"," "))
+zoomitComments['wordCount'] = zoomitComments['Message'].agg(lambda x: len(x.rsplit(" ")))
 
 
 zoomitComments['Message'][499724].replace("<br />"," ")
