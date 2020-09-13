@@ -10,3 +10,8 @@ Created on Mon Sep  7 23:01:30 2020
 !git add "commentClassifier.py"
 !git commit -m "from-Mac-Spyder"
 !git push
+
+import numpy as np
+import pandas as pd
+
+zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
