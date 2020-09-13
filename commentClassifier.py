@@ -14,4 +14,9 @@ Created on Mon Sep  7 23:01:30 2020
 import numpy as np
 import pandas as pd
 
+
 zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
+zoomitComments.shape
+zoomitComments.describe()
+zoomitComments.columns
+zoomitComments.head()
