@@ -31,4 +31,5 @@ zoomitComments['charCount'] = zoomitComments["Message"].agg(lambda x: len(x))
 stopWords=hm.stopwords_list()
 zoomitComments['#_of_StopWords']=zoomitComments['Message'].agg(lambda x: len([w for w in x.split() if w in stopWords]))
 
-zoomitComments.head()
+stemWords=hm.Stemmer()
+zoomitComments['Message']=zoomitComments['Message'].agg(lambda x: (" ")())
