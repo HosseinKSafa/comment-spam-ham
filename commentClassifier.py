@@ -17,15 +17,17 @@ import hazm as hm
 
 
 zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
+
+zoomitComments.dtypes
 zoomitComments.describe()
 zoomitComments.columns
 zoomitComments.head()
 zoomitComments=zoomitComments.drop(["ParentCommentid","UpdateDate2","CreateDate2","UpdatedByUserId","Name","Email"], axis=1)
 
+comments=zoomitComments[1:10]
+comments
 
-zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<",""))
-zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("/>",""))
-zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: x.replace("<br />"," "))
+comments['newMessage'] = comments['Message'].agg(lambda x: x.replace("<br />"," "))
 zoomitComments['wordCount'] = zoomitComments["Message"].agg(lambda comment: len(comment.split(" ")))
 
 zoomitComments['Message'].agg(lambda x: x.replace("<br />"," "))
