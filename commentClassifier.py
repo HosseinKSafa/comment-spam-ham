@@ -29,6 +29,17 @@ zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: reg.sub('[<b
 zoomitComments['wordCount'] = zoomitComments["Message"].agg(lambda x: len(x.split(" ")))
 zoomitComments['charCount'] = zoomitComments["Message"].agg(lambda x: len(x))
 zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: reg.sub('\s+',' ',x))
+#zoomitComments['Message']=zoomitComments['Message'].agg(lambda x: (' ').join(reg.sub('.','',[w for w in x.split() if reg.match('([\w]+\.)+[\w]+(?=[\s]|$)',w)]))
+
+#reg.sub('.','',w for w in x.split() if reg.match('([\w]+\.)+[\w]+(?=[\s]|$)',w))
+
+"""
+if reg.match('([\w]+\.)+[\w]+(?=[\s]|$)','h.o.s.s.e.n'):
+    print("1")
+else:
+    print("2")
+
+"""
 
 stopWords=hm.stopwords_list()
 zoomitComments['#_of_StopWords']=zoomitComments['Message'].agg(lambda x: len([w for w in x.split() if w in stopWords]))
@@ -36,6 +47,17 @@ zoomitComments['#_of_StopWords']=zoomitComments['Message'].agg(lambda x: len([w 
 stemWords=hm.Stemmer()
 zoomitComments['Message']=zoomitComments['Message'].agg(lambda x: (' ').join([stemWords.stem(w) for w in x.split()]))
 
-stopWords
+pubComment=zoomitComments.loc[zoomitComments['Status']==1,:].loc[:,['Message']]
+unpubComment=zoomitComments.loc[zoomitComments['Status']==0,:].loc[:,['Message']]
 
+pub_No_Stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
+unpub_No_stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
+
+
+len(pubComment)
+len(unpubComment)
+
+
+stopWords
+len(stopWords)
 
