@@ -36,9 +36,6 @@ zoomitComments['#_of_StopWords']=zoomitComments['Message'].agg(lambda x: len([w 
 stemWords=hm.Stemmer()
 zoomitComments['Message']=zoomitComments['Message'].agg(lambda x: (' ').join([stemWords.stem(w) for w in x.split()]))
 
-zoomitComments['Message'][2]
-
-
- reg.findall(' ++','hossein   safa')
+stopWords
 
 
