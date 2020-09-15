@@ -26,7 +26,7 @@ zoomitComments = pd.concat(list_of_dataframes)
 zoomitComments['Status'].unique()
 zoomitComments['Status'].value_counts()
 len(zoomitComments)
-
+zoomitComments.describe()
 zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
 #zoomitComments=pd.read_csv("/Users/Hossein/Desktop/DataScience/Data Sets/commentTop500000.csv")
 
