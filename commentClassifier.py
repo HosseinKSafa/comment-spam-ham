@@ -15,6 +15,18 @@ import pandas as pd
 import hazm as hm
 import re as reg
 
+path="C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/"
+comment_csv=["commentTop500000.csv","commentTop500000Page2.csv","commentTop500000Page3.csv"]
+
+list_of_dataframes = []
+for filename in comment_csv:
+    list_of_dataframes.append(pd.read_csv(path+filename))
+
+zoomitComments = pd.concat(list_of_dataframes)
+zoomitComments['Status'].unique()
+zoomitComments['Status'].value_counts()
+len(zoomitComments)
+
 zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
 #zoomitComments=pd.read_csv("/Users/Hossein/Desktop/DataScience/Data Sets/commentTop500000.csv")
 
@@ -44,7 +56,7 @@ unpubComment=zoomitComments.loc[zoomitComments['Status']==0,:].loc[:,['Message']
 pub_No_Stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
 unpub_No_stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
 
-
+zoomitComments['Status'].unique()
 len(pubComment)
 len(unpubComment)
 
