@@ -56,6 +56,8 @@ unpubComment=zoomitComments.loc[zoomitComments['Status']==0,:].loc[:,['Message']
 pub_No_Stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
 unpub_No_stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
 
+pub_comment_count=pub_No_Stop.split(expand=True).stack().value_counts()
+
 zoomitComments['Status'].unique()
 len(pubComment)
 len(unpubComment)
