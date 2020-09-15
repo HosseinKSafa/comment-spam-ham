@@ -15,8 +15,8 @@ import pandas as pd
 import hazm as hm
 import re as reg
 
-#zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
-zoomitComments=pd.read_csv("/Users/Hossein/Desktop/DataScience/Data Sets/commentTop500000.csv")
+zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
+#zoomitComments=pd.read_csv("/Users/Hossein/Desktop/DataScience/Data Sets/commentTop500000.csv")
 
 zoomitComments.dtypes
 zoomitComments.describe()
@@ -29,17 +29,8 @@ zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: reg.sub('[<b
 zoomitComments['wordCount'] = zoomitComments["Message"].agg(lambda x: len(x.split(" ")))
 zoomitComments['charCount'] = zoomitComments["Message"].agg(lambda x: len(x))
 zoomitComments['Message'] = zoomitComments['Message'].agg(lambda x: reg.sub('\s+',' ',x))
+
 #zoomitComments['Message']=zoomitComments['Message'].agg(lambda x: (' ').join(reg.sub('.','',[w for w in x.split() if reg.match('([\w]+\.)+[\w]+(?=[\s]|$)',w)]))
-
-#reg.sub('.','',w for w in x.split() if reg.match('([\w]+\.)+[\w]+(?=[\s]|$)',w))
-
-"""
-if reg.match('([\w]+\.)+[\w]+(?=[\s]|$)','h.o.s.s.e.n'):
-    print("1")
-else:
-    print("2")
-
-"""
 
 stopWords=hm.stopwords_list()
 zoomitComments['#_of_StopWords']=zoomitComments['Message'].agg(lambda x: len([w for w in x.split() if w in stopWords]))
