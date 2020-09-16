@@ -27,7 +27,7 @@ zoomitComments['Status'].unique()
 zoomitComments['Status'].value_counts()
 len(zoomitComments)
 zoomitComments.describe()
-zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
+#zoomitComments=pd.read_csv("C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/commentTop500000.csv")
 #zoomitComments=pd.read_csv("/Users/Hossein/Desktop/DataScience/Data Sets/commentTop500000.csv")
 
 zoomitComments.dtypes
@@ -55,6 +55,11 @@ unpubComment=zoomitComments.loc[zoomitComments['Status']==0,:].loc[:,['Message']
 
 pub_No_Stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
 unpub_No_stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
+
+len(unpub_No_stop)
+
+reg.findall(r'[\dA-Za-z]+|[^\dA-Za-z\W]+', pub_No_Stop[22], reg.UNICODE)
+pub_No_Stop[1000]
 
 pub_comment_count=pub_No_Stop.str.split(expand=True).stack().value_counts()
 
