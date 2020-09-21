@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 import hazm as hm
 import re as reg
+import wordcloud  as worldCloud
 
 path="C:/Users/h.safa/Downloads/Personal Files/DataScience/DataScience/Data Sets/"
 comment_csv=["commentTop500000.csv","commentTop500000Page2.csv","commentTop500000Page3.csv"]
