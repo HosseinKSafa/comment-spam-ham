@@ -54,6 +54,31 @@ zoomitComments['Message']=zoomitComments['Message'].agg(lambda x: (' ').join([st
 pubComment=zoomitComments.loc[zoomitComments['Status']==1,:].loc[:,['Message']]
 unpubComment=zoomitComments.loc[zoomitComments['Status']==0,:].loc[:,['Message']]
 
+
+len(unpubComment)
+zoomitComments['Status'].unique()
+
+
+import matplotlib.pyplot as pPlot
+from PIL import Image
+
+for count in range(1,len(pubComment)):
+    commentsWord=(' ').join()
+
+
+dataset = open("sampleWords.txt", "r").read()
+
+def create_word_cloud(string):
+   maskArray = npy.array(Image.open("C:/Users/h.safa/Downloads/zlogo.png"))
+   cloud = WordCloud(background_color = "white", max_words = 200, mask = maskArray, stopwords = set(STOPWORDS))
+   cloud.generate(string)
+   cloud.to_file("wordCloud.png")
+   
+dataset = dataset.lower()
+create_word_cloud(dataset)
+
+
+
 pub_No_Stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
 unpub_No_stop=zoomitComments['Message'].agg(lambda x: (' ').join([w for w in x.split() if w not in stopWords]))
 
