@@ -62,8 +62,10 @@ zoomitComments['Status'].unique()
 import matplotlib.pyplot as pPlot
 from PIL import Image
 
+pubComment.iloc[2]
+
 for count in range(1,len(pubComment)):
-    commentsWord=(' ').join()
+    commentsWord=(' ').join(pubComment[i])
 
 
 dataset = open("sampleWords.txt", "r").read()
