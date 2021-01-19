@@ -62,13 +62,11 @@ zoomitComments['Status'].unique()
 import matplotlib.pyplot as pPlot
 from PIL import Image
 
-pubComment.iloc[2]
 
+commentsWord=""
 for count in range(1,len(pubComment)):
-    commentsWord=(' ').join(pubComment[i])
+    commentsWord=commentsWord+' '+pubComment.iloc[count] 
 
-
-dataset = open("sampleWords.txt", "r").read()
 
 def create_word_cloud(string):
    maskArray = npy.array(Image.open("C:/Users/h.safa/Downloads/zlogo.png"))
